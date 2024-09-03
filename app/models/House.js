@@ -22,11 +22,15 @@ export class House {
           src="${this.imgUrl}"
           alt="Picture of House">
         <div class="card-body">
-          <h5 class="card-title">$${this.price}</h5>
+          <h5 class="card-title">$${this.priceAsCurrency}</h5>
           <p class="card-text"><strong>${this.bathrooms}</strong> bdrm | <strong>${this.bathrooms}</strong> bath | <strong>${this.levels}</strong> lvls | year built: <strong>${this.year}</strong></p>
           <p class="card-text">${this.description}</p>
         </div>
       </div>
     </div>`
+  }
+
+  get priceAsCurrency() {
+    return new Intl.NumberFormat().format(this.price)
   }
 }

@@ -1,6 +1,39 @@
 <div class="container-fluid">
-  <h2 class="my-3">Houses for sale, get your piping hot Houses for sale</h2>
-
+  <h2 class="my-3">Houses for sale, get your piping hot Houses for sale!</h2>
+  <div id="house-form" class="d-none">
+    <h6>What's that you say? You want to <i>sell</i> a house? Sure, fill out the form below!</h6>
+    <form onsubmit="">
+      <div class="mb-3">
+        <label for="bedrooms">Bedrooms</label>
+        <input name="bedrooms" type="number" required min="1" max="150">
+      </div>
+      <div class="mb-3">
+        <label for="bathrooms">Bathrooms</label>
+        <input name="bathrooms" type="number" required min="0" step=".5" max="150">
+      </div>
+      <div class="mb-3">
+        <label for="levels">Levels</label>
+        <input name="levels" type="number" required min="1" max="150">
+      </div>
+      <div class="mb-3">
+        <label for="imgUrl">Image</label>
+        <input name="imgUrl" type="url" required maxlength="500">
+      </div>
+      <div class="mb-3">
+        <label for="year">Year Built</label>
+        <input name="year" type="number" required min="1700" max="2024">
+      </div>
+      <div class="mb-3">
+        <label for="price">Price</label>
+        <input name="price" type="number" required min="0">
+      </div>
+      <div class="mb-3">
+        <label for="description">Description</label>
+        <textarea name="description" id="description"></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
   <section id="house-listings" class="row g-4 mt-2">
     <!-- <div class="col-md-6">
       <div class="card">

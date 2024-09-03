@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js"
 import { housesService } from "../services/HousesService.js"
+import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
 import { setHTML } from "../utils/Writer.js"
 
@@ -7,8 +8,10 @@ export class HousesController {
   constructor() {
     console.log('House Controller loaded')
     AppState.on('houses', this.drawHouses)
+    AppState.on('user', this.showHouseForm)
 
     this.getHouses()
+    this.showHouseForm()
   }
 
   async getHouses() {
@@ -25,5 +28,12 @@ export class HousesController {
     let housesHTML = ''
     houses.forEach(house => housesHTML += house.HouseTemplate)
     setHTML('house-listings', housesHTML)
+  }
+
+  showHouseForm() {
+    if (AppState.user == null) return
+    const houseFormElem = document.getElementById('house-form')
+    if (houseFormElem == null) return
+    houseFormElem.classList.remove('d-none')
   }
 }
