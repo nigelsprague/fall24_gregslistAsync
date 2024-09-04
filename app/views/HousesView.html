@@ -2,7 +2,7 @@
   <h2 class="my-3">Houses for sale, get your piping hot Houses for sale!</h2>
   <div id="house-form" class="d-none">
     <h6>What's that you say? You want to <i>sell</i> a house? Sure, fill out the form below!</h6>
-    <form onsubmit="">
+    <form onsubmit="app.HousesController.createHouse()">
       <div class="mb-3">
         <label for="bedrooms">Bedrooms</label>
         <input name="bedrooms" type="number" required min="1" max="150">

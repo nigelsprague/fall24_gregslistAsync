@@ -36,4 +36,18 @@ export class HousesController {
     if (houseFormElem == null) return
     houseFormElem.classList.remove('d-none')
   }
+
+  async createHouse() {
+    try {
+      event.preventDefault()
+      const houseFormElem = event.target
+      const houseFormData = getFormData(houseFormElem)
+      await housesService.createHouse(houseFormData)
+      houseFormElem.reset()
+    } catch (error) {
+      Pop.error(error)
+      console.error(error);
+
+    }
+  }
 }
